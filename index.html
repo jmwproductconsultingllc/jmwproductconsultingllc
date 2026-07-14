@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>JMW Product Consulting | Operator-Grade Product Strategy & PE / M&A Advisory</title>
+    <meta name="description" content="Operator-grade product strategy and investor-grade product advisory across the full M&A lifecycle — buy-side, hold, and sell-side — spanning fintech, AI, healthcare, automotive, IoT, and energy. 18+ years; ex-Zillow, loanDepot, Spireon; PE advisory at Crosslake.">
+    <meta name="author" content="Jason M. Wright">
+    <link rel="canonical" href="https://www.jmwproductconsulting.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JMW Product Consulting | Operator-Grade Product Strategy">
+    <meta property="og:description" content="Product strategy, AI, and PE diligence from an operator who designed the systems behind $20B+ platforms. To the architecture, not just the deck.">
+    <meta property="og:url" content="https://www.jmwproductconsulting.com/">
+    <meta property="og:image" content="https://www.jmwproductconsulting.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon (replace with real favicon.ico / SVG before launch) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 rx=%22116%22 fill=%22%230e0f18%22/><path d=%22M362 156 H306 M312 156 V300 a78 78 0 0 1 -156 0%22 fill=%22none%22 stroke=%22%232dd4e6%22 stroke-width=%2248%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><circle cx=%22362%22 cy=%22156%22 r=%2214%22 fill=%22%236ff0db%22/></svg>">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "JMW Product Consulting, LLC",
+      "description": "Operator-grade product strategy, AI product, and private-equity / M&A product advisory across the full deal lifecycle (buy-side, hold, and sell-side).",
+      "founder": { "@type": "Person", "name": "Jason M. Wright" },
+      "url": "https://www.jmwproductconsulting.com",
+      "areaServed": "Global / Remote",
+      "telephone": "+1-714-313-0833",
+      "email": "jason@jmwproductconsulting.com"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Type pairing — Sora (display: sharp, geometric, professional) + Hanken Grotesk (body).
+           Modern and tech-forward without reading playful or like the default AI template. */
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Hanken+Grotesk:wght@300;400;500;600&display=swap');
+
+        :root {
+            --bg:        #07070a;
+            --bg-soft:   #0d0d12;
+            --bg-card:   #0a0a0f;
+            --line:      rgba(255,255,255,0.09);
+            --line-soft: rgba(255,255,255,0.06);
+            --ink:       #f4f5f7;
+            --ink-soft:  rgba(244,245,247,0.72);
+            --ink-mute:  rgba(244,245,247,0.50);
+            --accent:    #2dd4e6;  /* refined cyan */
+            --accent-2:  #a78bfa;  /* purple, used sparingly */
+            --display:   'Sora', system-ui, -apple-system, sans-serif;
+            --body:      'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--body);
+            background: var(--bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Atmospheric background: layered glows + a fine grid texture for depth */
+        body::before {
+            content: "";
+            position: fixed; inset: 0; z-index: -2;
+            background:
+                radial-gradient(60rem 40rem at 50% -10%, rgba(45,212,230,0.10), transparent 60%),
+                radial-gradient(40rem 30rem at 85% 10%, rgba(167,139,250,0.07), transparent 60%);
+        }
+        body::after {
+            content: "";
+            position: fixed; inset: 0; z-index: -1;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+            background-size: 64px 64px;
+            -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
+                    mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
+        }
+
+        .display { font-family: var(--display); letter-spacing: -0.03em; line-height: 1.02; }
+        .eyebrow { font-family: var(--body); letter-spacing: 0.22em; text-transform: uppercase; }
+
+        .accent { color: var(--accent); }
+        .accent-text {
+            background: linear-gradient(100deg, var(--accent), #6ee7f5);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-scrolled {
+            background: rgba(7,7,10,0.82);
+            backdrop-filter: blur(14px);
+            border-color: var(--line);
+        }
+
+        .btn-primary {
+            background: var(--ink); color: var(--bg);
+            transition: transform .18s ease, box-shadow .25s ease, background .2s ease;
+        }
+        .btn-primary:hover { box-shadow: 0 14px 40px -12px rgba(45,212,230,0.45); }
+        .btn-primary:active { transform: scale(.985); }
+
+        .btn-ghost { border: 1px solid var(--line); transition: background .2s ease, border-color .2s ease; }
+        .btn-ghost:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.22); }
+
+        /* Cards — fixes the original invisible black-on-black hover shadow with a cyan glow */
+        .card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0));
+            border: 1px solid var(--line);
+            transition: transform .3s cubic-bezier(.4,0,.2,1), border-color .3s ease, box-shadow .3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(45,212,230,0.4);
+            box-shadow: 0 24px 50px -20px rgba(45,212,230,0.28);
+        }
+
+        .metric { font-variant-numeric: tabular-nums; }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+        }
+
+        /* Staggered hero reveal */
+        @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+        .rise { opacity: 0; animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+        .d1 { animation-delay: .05s; } .d2 { animation-delay: .18s; }
+        .d3 { animation-delay: .31s; } .d4 { animation-delay: .44s; } .d5 { animation-delay: .57s; }
+
+        /* Hero routing-line motif — flowing dashes evoke AI lead routing */
+        .flow { stroke-dasharray: 6 10; animation: dash 9s linear infinite; }
+        @keyframes dash { to { stroke-dashoffset: -160; } }
+        .node-pulse { animation: nodepulse 3.2s ease-in-out infinite; }
+        @keyframes nodepulse { 0%,100% { opacity:.35 } 50% { opacity:1 } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .rise { animation: none; opacity: 1; }
+            .flow, .node-pulse, html { animation: none; scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip link for accessibility -->
+    <a href="#hero" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-xl">Skip to content</a>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-transparent transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#hero" class="flex items-center gap-x-3">
+                    <svg width="38" height="38" viewBox="0 0 512 512" class="rounded-xl shrink-0" aria-label="JMW mark">
+                        <defs><linearGradient id="navJ" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#6ff0db"/><stop offset=".5" stop-color="#2dd4e6"/><stop offset="1" stop-color="#1ab8d6"/>
+                        </linearGradient></defs>
+                        <rect width="512" height="512" rx="116" fill="#0e0f18"/>
+                        <path d="M362 156 H306 M312 156 V300 a78 78 0 0 1 -156 0" fill="none" stroke="url(#navJ)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="362" cy="156" r="14" fill="#6ff0db"/>
+                        <circle cx="156" cy="300" r="12" fill="#2dd4e6"/>
+                    </svg>
+                    <div class="leading-tight">
+                        <div class="display font-semibold text-xl tracking-tight">JMW</div>
+                        <div class="text-[10px] eyebrow" style="color:var(--ink-mute)">Product Consulting</div>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-x-9 text-sm" style="color:var(--ink-soft)">
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="#franchise" class="hover:text-white transition-colors">Franchise</a>
+                    <a href="#builds" class="hover:text-white transition-colors">Builds</a>
+                    <a href="#work" class="hover:text-white transition-colors">Case Studies</a>
+                    <a href="#impact" class="hover:text-white transition-colors">Impact</a>
+                    <a href="#approach" class="hover:text-white transition-colors">Approach</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <button onclick="bookCall()" class="btn-primary px-5 py-2.5 font-semibold text-sm rounded-2xl">
+                        Book a Call
+                    </button>
+                    <button class="md:hidden w-10 h-10 flex items-center justify-center" style="color:var(--ink-soft)" onclick="toggleMobileMenu()" aria-label="Open menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        <!-- routing-line motif -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" style="opacity:.5" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g fill="none" stroke="var(--accent)" stroke-width="1">
+                <path class="flow" d="M-50,120 C200,120 280,300 540,300" opacity=".5"/>
+                <path class="flow" style="animation-delay:-2s" d="M-50,300 C220,300 300,180 540,300" opacity=".4"/>
+                <path class="flow" style="animation-delay:-4s" d="M-50,480 C200,480 300,300 540,300" opacity=".5"/>
+                <path class="flow" style="animation-delay:-1s" d="M660,300 C920,300 1000,140 1260,140" opacity=".4"/>
+                <path class="flow" style="animation-delay:-3s" d="M660,300 C940,300 1010,460 1260,460" opacity=".5"/>
+            </g>
+            <g fill="var(--accent)">
+                <circle class="node-pulse" cx="540" cy="300" r="5"/>
+                <circle class="node-pulse" style="animation-delay:-1.5s" cx="660" cy="300" r="5"/>
+                <circle class="node-pulse" style="animation-delay:-.8s" cx="1260" cy="140" r="3.5"/>
+                <circle class="node-pulse" style="animation-delay:-2.3s" cx="1260" cy="460" r="3.5"/>
+            </g>
+        </svg>
+
+        <div class="relative max-w-5xl mx-auto px-6 md:px-8 text-center">
+            <div class="rise d1 inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full border text-sm mb-8" style="border-color:var(--line); background:rgba(255,255,255,0.03)">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 node-pulse"></span>
+                <span style="color:var(--ink-soft)">Accepting select engagements for Q3 / Q4 2026</span>
+            </div>
+
+            <h1 class="rise d2 display text-5xl md:text-7xl font-700 mb-6" style="font-weight:700">
+                Big-tech product firepower<span style="color:var(--ink-mute)">.</span><br>
+                <span class="accent-text">Without the big-tech price tag.</span>
+            </h1>
+
+            <p class="rise d3 max-w-2xl mx-auto text-lg md:text-xl mb-10" style="color:var(--ink-soft)">
+                From a product management intern to senior product leadership across multiple publicly traded, global companies — and now a strategic advisor to private equity firms, founders, and leaders at every level. On the front lines the whole way, I've designed and rolled out the solutions that scaled to support $20B+/month in transaction volume.
+            </p>
+
+            <div class="rise d4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="bookCall()" class="btn-primary group px-8 py-4 font-semibold text-lg rounded-3xl flex items-center justify-center gap-x-3">
+                    <span>Schedule a Strategy Session</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-0.5 transition-transform"></i>
+                </button>
+                <a href="#work" class="btn-ghost px-7 py-4 font-medium rounded-3xl flex items-center gap-x-2">
+                    See case studies
+                </a>
+            </div>
+
+            <div class="rise d5 mt-9 eyebrow text-[11px]" style="color:var(--ink-mute); letter-spacing:.2em">
+                Ex-Zillow &nbsp;•&nbsp; loanDepot &nbsp;•&nbsp; Spireon &nbsp;•&nbsp; Crosslake
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust bar -->
+    <div class="border-y" style="border-color:var(--line)">
+        <div class="max-w-6xl mx-auto px-6 md:px-8 py-5">
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm" style="color:var(--ink-mute)">
+                <span>Principal, AI &amp; Experiences @ Zillow</span>
+                <span class="hidden md:block w-px h-3.5" style="background:var(--line)"></span>
+                <span>Head of Product, Growth @ loanDepot (IPO path)</span>
+                <span class="hidden md:block w-px h-3.5" style="background:var(--line)"></span>
+                <span>PE &amp; M&amp;A Advisory @ Crosslake Technologies</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="max-w-6xl mx-auto px-6 md:px-8 pt-24 pb-16">
+        <div class="grid md:grid-cols-12 gap-x-12 gap-y-10 items-center">
+            <div class="md:col-span-5">
+                <div class="relative">
+                    <img src="jason-headshot.png" alt="Jason M. Wright, Founder of JMW Product Consulting"
+                         class="w-full rounded-3xl shadow-2xl ring-1 ring-white/10"
+                         onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'w-full aspect-[4/5] rounded-3xl ring-1 ring-white/10 flex items-center justify-center',style:'background:linear-gradient(160deg,#16161d,#0a0a0f)',innerHTML:'<span class=&quot;display text-7xl&quot; style=&quot;color:var(--accent)&quot;>JW</span>'}))">
+                    <div class="absolute -bottom-3 -right-3 px-5 py-2 rounded-2xl border text-sm" style="background:var(--bg); border-color:var(--line)">
+                        <span class="font-semibold">Jason M. Wright</span><br>
+                        <span class="text-xs" style="color:var(--ink-mute)">Founder &amp; Principal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-7">
+                <div class="eyebrow text-xs accent mb-3">18+ Years &nbsp;•&nbsp; Boutique Precision</div>
+                <h2 class="display text-4xl md:text-5xl mb-6" style="font-weight:600">I build the systems<br>that win markets.</h2>
+                <div class="space-y-4 text-lg" style="color:var(--ink-soft)">
+                    <p>I'm a product leader who has scaled real platforms from early stage to massive outcomes — leading AI-driven lead routing at Zillow and designing the next-generation origination platform that let loanDepot surpass $20B/month in funding and supported its path to IPO.</p>
+                    <p>Today I work with a small number of high-caliber clients across fintech, AI, healthcare, automotive, IoT, and energy — founders building category-defining products, private equity firms on the product side of deals (diligence, value creation, and exit), and growth teams installing a real product function. I bring an operator's hands and an investor's eye to every engagement.</p>
+                </div>
+                <div class="mt-6 text-sm" style="color:var(--ink-mute)">BBA, Management &amp; Information Technology, University of San Diego &nbsp;•&nbsp; PM intern to Principal — 18 years, every seat in the product org</div>
+                <div class="flex items-center gap-x-4 mt-8 text-sm">
+                    <a href="https://www.linkedin.com/in/jasonmwright" target="_blank" rel="noopener" class="flex items-center gap-x-2 hover:text-white transition-colors" style="color:var(--ink-soft)">
+                        <i class="fa-brands fa-linkedin text-xl"></i><span>LinkedIn</span>
+                    </a>
+                    <span style="color:var(--ink-mute)">•</span>
+                    <a href="#approach" class="flex items-center gap-x-2 hover:text-white transition-colors" style="color:var(--ink-soft)">See my approach <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20" style="background:var(--bg-soft)">
+        <div class="max-w-6xl mx-auto px-6 md:px-8">
+            <div class="mb-12 max-w-2xl">
+                <div class="eyebrow text-xs accent mb-3">What I Deliver</div>
+                <h3 class="display text-4xl md:text-5xl mb-4" style="font-weight:600">Two core strengths. Four ways to engage.</h3>
+                <p class="text-lg" style="color:var(--ink-soft)">M&amp;A product advisory across the deal lifecycle and product-operating-system builds are where I go deepest. AI product strategy and new-venture work flow from those same muscles.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="card p-7 rounded-3xl">
+                    <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(45,212,230,0.12); color:var(--accent)"><i class="fa-solid fa-magnifying-glass-dollar text-xl"></i></div>
+                    <h4 class="display text-2xl mb-3" style="font-weight:600">PE &amp; M&amp;A Advisory</h4>
+                    <p class="text-[15px]" style="color:var(--ink-soft)">Product, platform, and architecture work across the full deal lifecycle — buy-side diligence, hold-period value creation, and sell-side / exit readiness.</p>
+                    <div class="mt-5 text-xs" style="color:var(--ink-mute)">To the architecture — not just the deck.</div>
+                </div>
+
+                <div class="card p-7 rounded-3xl">
+                    <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(167,139,250,0.14); color:var(--accent-2)"><i class="fa-solid fa-diagram-project text-xl"></i></div>
+                    <h4 class="display text-2xl mb-3" style="font-weight:600">Product Operating System</h4>
+                    <p class="text-[15px]" style="color:var(--ink-soft)">Fractional &amp; interim product leadership. OKRs, prioritization, org design, and hiring for teams with engineers but no product function.</p>
+                    <div class="mt-5 text-xs" style="color:var(--ink-mute)">Vision down to scrum-team execution.</div>
+                </div>
+
+                <div class="card p-7 rounded-3xl">
+                    <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(45,212,230,0.12); color:var(--accent)"><i class="fa-solid fa-robot text-xl"></i></div>
+                    <h4 class="display text-2xl mb-3" style="font-weight:600">AI Product Strategy</h4>
+                    <p class="text-[15px]" style="color:var(--ink-soft)">Vision, roadmapping, and AI integration that moves metrics — lead routing, decisioning, and AI-native workflows. Not hype.</p>
+                    <div class="mt-5 text-xs" style="color:var(--ink-mute)">MECE &nbsp;•&nbsp; Data-informed &nbsp;•&nbsp; Executable</div>
+                </div>
+
+                <div class="card p-7 rounded-3xl">
+                    <div class="w-11 h-11 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(45,212,230,0.12); color:var(--accent)"><i class="fa-solid fa-rocket text-xl"></i></div>
+                    <h4 class="display text-2xl mb-3" style="font-weight:600">New Venture &amp; Operator Builds</h4>
+                    <p class="text-[15px]" style="color:var(--ink-soft)">0→1 strategy, financial models, and GTM for new ventures and tech-enabled business models — including productizing institutional-grade frameworks into self-serve tools.</p>
+                    <div class="mt-5 text-xs" style="color:var(--ink-mute)">Validated, viable, ready to ship.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Franchise Diligence practice -->
+    <section id="franchise" class="max-w-6xl mx-auto px-6 md:px-8 py-24">
+        <div class="mb-12 max-w-3xl">
+            <div class="eyebrow text-xs accent mb-3">Flagship Practice &nbsp;•&nbsp; Franchise Diligence</div>
+            <h3 class="display text-4xl md:text-5xl mb-4" style="font-weight:600">Buyer-side franchise diligence, run on our own engine.</h3>
+            <p class="text-lg" style="color:var(--ink-soft)">Every franchise buyer in America is surrounded by sellers — brokers, sales orgs, and portals, all franchisor-paid. We sit on the one side of the table nobody else does: yours.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5 mb-5">
+            <div class="card p-7 rounded-3xl">
+                <div class="display text-4xl accent metric" style="font-weight:700">75+</div>
+                <div class="text-sm mt-2" style="color:var(--ink-soft)">brands fully analyzed — every number from the actual FDD, published openly on the Franchise Edge engine.</div>
+            </div>
+            <div class="card p-7 rounded-3xl">
+                <div class="display text-4xl accent metric" style="font-weight:700">116</div>
+                <div class="text-sm mt-2" style="color:var(--ink-soft)">FDDs tracked across 11 categories, growing weekly.</div>
+            </div>
+            <div class="card p-7 rounded-3xl">
+                <div class="display text-4xl accent metric" style="font-weight:700">1 source</div>
+                <div class="text-sm mt-2" style="color:var(--ink-soft)">primary data. Franchisor and broker claims get reconciled against government registries and the FDD itself — and graded when they don't match.</div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+            <div class="card p-8 rounded-3xl">
+                <div class="eyebrow text-[10px] mb-4" style="color:var(--accent)">How Engagements Run</div>
+                <p class="text-[15px]" style="color:var(--ink-soft)"><span class="text-white font-medium">Self-serve ($199):</span> a full single-brand diligence report from the engine, in minutes.</p>
+                <p class="text-[15px] mt-4" style="color:var(--ink-soft)"><span class="text-white font-medium">Bespoke (from $2,000):</span> your brand, your market, your model — territory validation against primary data, a corrected financial model built on evidence instead of the franchisor's template, and a written, priced ask list before you sign. Every tier credits 100% toward the next.</p>
+            </div>
+            <div class="card p-8 rounded-3xl">
+                <div class="eyebrow text-[10px] mb-4" style="color:var(--accent)">Recent Engagement &nbsp;•&nbsp; Anonymized</div>
+                <p class="text-[15px]" style="color:var(--ink-soft)">A buyer five days from a signing deadline "couldn't make the numbers work." We rebuilt the model from the validated ramp, priced his territories against government aircraft-registry data, and found one territory potentially <em>better</em> than anyone had told him — and one that couldn't clear the franchisor's own royalty floor. He walked into the deadline holding written asks instead of a feeling.</p>
+                <div class="mt-4 text-xs" style="color:var(--ink-mute)">Aviation-services franchise, Pacific Northwest &nbsp;•&nbsp; client identity withheld</div>
+            </div>
+        </div>
+
+        <div class="mt-6 rounded-3xl p-7 md:p-8 border" style="border-color:rgba(45,212,230,0.35); background:linear-gradient(135deg, rgba(45,212,230,0.07), rgba(45,212,230,0.02))">
+            <div class="eyebrow text-[10px] mb-3 accent">The Independence Creed</div>
+            <p class="text-[15.5px]" style="color:var(--ink-soft)">JMW takes <span class="text-white font-medium">no franchisor money</span> — no referral fees, no placement commissions, no shelf economics — in its diligence practice. We are paid by buyers alone and hold no position in whether any deal closes. Where a JMW principal has operator history inside a franchise system under review, that history is <span class="accent font-medium">disclosed to the client before engagement</span> — it's how we know where the numbers hide, and you'll hear it from us first.</p>
+        </div>
+
+        <div class="mt-8">
+            <a href="https://engine.foundersplinko.com/brands" target="_blank" rel="noopener" class="btn-ghost px-7 py-4 font-medium rounded-3xl inline-flex items-center gap-x-2">Explore the engine — Franchise Edge <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+        </div>
+    </section>
+
+    <!-- Software We Build -->
+    <section id="builds" class="py-20" style="background:var(--bg-soft)">
+        <div class="max-w-6xl mx-auto px-6 md:px-8">
+            <div class="mb-12 max-w-3xl">
+                <div class="eyebrow text-xs mb-3" style="color:var(--accent-2)">Software We Build</div>
+                <h3 class="display text-4xl md:text-5xl mb-4" style="font-weight:600">Bespoke AI products — designed, shipped, and proven in the field.</h3>
+                <p class="text-lg" style="color:var(--ink-soft)">Most consultants hand you a roadmap. We hand you working software with users on it. Two live products, one discipline: honest AI that says what it knows, cites its source, and flags what it can't answer — never guesses.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5">
+                <article class="card p-8 rounded-3xl">
+                    <div class="flex items-center gap-x-3 mb-4">
+                        <h4 class="display text-2xl" style="font-weight:600">Wattson</h4>
+                        <span class="inline-flex items-center gap-x-1.5 px-3 py-1 rounded-full border text-[10px] eyebrow" style="border-color:rgba(52,211,153,0.35); color:#34d399"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 node-pulse"></span>Live · Field UAT</span>
+                    </div>
+                    <div class="eyebrow text-[10px] mb-3" style="color:var(--ink-mute)">Field AI for Electrical Contractors</div>
+                    <p class="text-[15px]" style="color:var(--ink-soft)">An electrician uploads the drawing set they already have, asks a question in plain language, and gets an answer with the source sheet and a confidence level. Anything the tool can't read or can't answer confidently is flagged plainly — never guessed. In production with working crews: mobile field-UX shipped, query logging live, and a phase-2 redesign proven on staging before it ever touches the users' stable build.</p>
+                    <div class="mt-4 text-xs" style="color:var(--ink-mute)">Built for a regional electrical contractor</div>
+                </article>
+                <article class="card p-8 rounded-3xl">
+                    <div class="flex items-center gap-x-3 mb-4">
+                        <h4 class="display text-2xl" style="font-weight:600">Franchise Edge</h4>
+                        <span class="inline-flex items-center gap-x-1.5 px-3 py-1 rounded-full border text-[10px] eyebrow" style="border-color:rgba(52,211,153,0.35); color:#34d399"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 node-pulse"></span>Live · In Production</span>
+                    </div>
+                    <div class="eyebrow text-[10px] mb-3" style="color:var(--ink-mute)">The FDD Diligence Engine</div>
+                    <p class="text-[15px]" style="color:var(--ink-soft)">An analysis engine that reads a Franchise Disclosure Document end to end — fee stacks, Item 19 earnings cohorts, territory mechanics, risk flags, financial condition — and publishes buyer-side diligence at scale. 75+ brands live, self-serve reports selling in production, and the same engine powers every bespoke JMW franchise engagement. We built it because the tool we needed didn't exist.</p>
+                    <div class="mt-4 text-xs"><a href="https://engine.foundersplinko.com" target="_blank" rel="noopener" class="accent underline">engine.foundersplinko.com →</a></div>
+                </article>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5 mt-5">
+                <div class="card p-6 rounded-3xl">
+                    <div class="eyebrow text-[10px] mb-2" style="color:var(--accent-2)">How We Ship</div>
+                    <p class="text-sm" style="color:var(--ink-soft)">Smallest version that delivers real value → live users → staged rollouts, with the ambitious rewrite proven on staging — never on your users.</p>
+                </div>
+                <div class="card p-6 rounded-3xl">
+                    <div class="eyebrow text-[10px] mb-2" style="color:var(--accent-2)">How We Scope</div>
+                    <p class="text-sm" style="color:var(--ink-soft)">A living scope document tracks what the product does, doesn't do, and every capability decision — clients see the punchlist, not a black box.</p>
+                </div>
+                <div class="card p-6 rounded-3xl">
+                    <div class="eyebrow text-[10px] mb-2" style="color:var(--accent-2)">What It Costs</div>
+                    <p class="text-sm" style="color:var(--ink-soft)">A fraction of an agency build, because the product thinking and the engineering judgment come from the same operator.</p>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <button onclick="bookCall()" class="btn-primary px-8 py-4 font-semibold rounded-3xl inline-flex items-center gap-x-3"><span>Scope a build — 30 minutes</span><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="work" class="max-w-6xl mx-auto px-6 md:px-8 py-24">
+        <div class="flex flex-wrap justify-between items-end gap-4 mb-10">
+            <div>
+                <div class="eyebrow text-xs accent mb-3">Selected Engagements</div>
+                <h3 class="display text-4xl md:text-5xl" style="font-weight:600">Real problems. Structured solutions.</h3>
+            </div>
+            <div class="text-xs" style="color:var(--ink-mute)">Client names withheld under NDA</div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+            <!-- 1 -->
+            <article class="card p-8 rounded-3xl">
+                <div class="eyebrow text-[10px] mb-4" style="color:var(--accent)">Healthcare &nbsp;•&nbsp; Product Org</div>
+                <h4 class="display text-2xl mb-3" style="font-weight:600">Installing the product operating system</h4>
+                <p class="text-[15px]" style="color:var(--ink-soft)">A fast-scaling public-health-tech company had inconsistent roadmapping, no shared metrics, and no head of product. I designed the operating system end to end — an OKR/KPI framework, standardized agile and prioritization, the right tooling, and an org-and-hiring plan including a dedicated Head of Product — serving as interim Chief Product Officer across 12 product managers while the system took hold.</p>
+            </article>
+            <!-- 2 -->
+            <article class="card p-8 rounded-3xl">
+                <div class="eyebrow text-[10px] mb-4" style="color:var(--accent)">Healthcare / Aesthetics &nbsp;•&nbsp; Market &amp; Roadmap</div>
+                <h4 class="display text-2xl mb-3" style="font-weight:600">MedSpa market analysis &amp; roadmap</h4>
+                <p class="text-[15px]" style="color:var(--ink-soft)">A leading medical-aesthetics software provider faced a crowded market and a freshly acquired product to integrate. Over a two-month research engagement, I defined the real market needs, validated which of the two platform architectures to build on, and delivered a roadmap covering pricing, tiering, and a path off legacy desktop installs.</p>
+            </article>
+            <!-- 3 -->
+            <article class="card p-8 rounded-3xl">
+                <div class="eyebrow text-[10px] mb-4" style="color:var(--accent)">IoT / Construction &nbsp;•&nbsp; Product &amp; Platform</div>
+                <h4 class="display text-2xl mb-3" style="font-weight:600">Telematics product &amp; platform strategy</h4>
+                <p class="text-[15px]" style="color:var(--ink-soft)">An early-stage telematics startup had strong technology but no product org and scaling-limited infrastructure. I assessed market, product, roadmap, org, and platform — recommending OEM-agnostic positioning, a dynamic prioritization framework, a combined software/hardware product org, and a cloud-ready architecture (multi-tenancy, containerization, services) with quality-engineering and security remediation.</p>
+            </article>
+            <!-- 4 -->
+            <article class="card p-8 rounded-3xl">
+                <div class="eyebrow text-[10px] mb-4" style="color:var(--accent-2)">Automotive &nbsp;•&nbsp; Buy-Side M&amp;A</div>
+                <h4 class="display text-2xl mb-3" style="font-weight:600">Recon portfolio consolidation</h4>
+                <p class="text-[15px]" style="color:var(--ink-soft)">An automotive-tech acquirer had bought two vehicle-reconstruction companies with overlapping products and needed to decide which platform to build on. I evaluated both across product, market, financials, and architecture, selected the go-forward platform, designed a phased consolidation, and mapped how to fold in the second company's strengths while mitigating migration and retention risk.</p>
+            </article>
+            <!-- 5 -->
+            <article class="card p-8 rounded-3xl md:col-span-2">
+                <div class="flex flex-wrap items-start justify-between gap-4">
+                    <div class="max-w-2xl">
+                        <div class="eyebrow text-[10px] mb-4" style="color:var(--accent)">Sports &amp; Recreation &nbsp;•&nbsp; New Venture (Co-Founder)</div>
+                        <h4 class="display text-2xl mb-3" style="font-weight:600">A tech-enabled, autonomous golf franchise</h4>
+                        <p class="text-[15px]" style="color:var(--ink-soft)">Co-created a multi-location, tech-enabled golf franchise with Sutra Ventures — financial modeling, work-stream design, data-driven site selection, GTM, and orchestration of 10+ software, hardware, and real-estate vendors into one automated operating model. <span class="text-white">This operator history is disclosed in any diligence engagement touching that franchise system — you'll hear it from us first.</span></p>
+                    </div>
+                    <div class="flex gap-8 shrink-0">
+                        <div><div class="display text-3xl accent metric" style="font-weight:700">~$45K</div><div class="text-xs mt-1" style="color:var(--ink-mute)">monthly revenue / location</div></div>
+                        <div><div class="display text-3xl accent metric" style="font-weight:700">~44%</div><div class="text-xs mt-1" style="color:var(--ink-mute)">operating margin</div></div>
+                    </div>
+                </div>
+            </article>
+            <!-- 6: FoundersPlinko -->
+            <article class="card p-8 rounded-3xl md:col-span-2">
+                <div class="eyebrow text-[10px] mb-4" style="color:var(--accent)">Franchise / Fintech-Grade Diligence &nbsp;•&nbsp; Founder</div>
+                <h4 class="display text-2xl mb-3" style="font-weight:600">Franchise Edge — institutional diligence, productized and live</h4>
+                <p class="text-[15px] max-w-3xl" style="color:var(--ink-soft)">Born out of the golf-franchise build, I took the buy-side diligence frameworks I use for PE clients and productized them into a live engine: FDD parsing at scale, unit-economics modeling, territory validation against primary data, and red-flag screening — Wall-Street-grade rigor, now selling self-serve reports in production and powering the <a href="#franchise" class="accent underline">Franchise Diligence practice</a>.
+                    <a href="https://engine.foundersplinko.com/brands" target="_blank" rel="noopener" class="accent underline whitespace-nowrap">engine.foundersplinko.com →</a></p>
+            </article>
+        </div>
+
+        <!-- Deal-lifecycle coverage -->
+        <div class="mt-6 rounded-3xl p-6 md:p-7 border" style="border-color:var(--line); background:rgba(255,255,255,0.02)">
+            <div class="eyebrow text-[10px] mb-4" style="color:var(--accent-2)">Across the Full Deal Lifecycle</div>
+            <div class="grid sm:grid-cols-3 gap-4 mb-5">
+                <div class="rounded-2xl p-4 border" style="border-color:var(--line-soft)">
+                    <div class="text-sm font-semibold mb-1">Buy-Side</div>
+                    <div class="text-[13px]" style="color:var(--ink-mute)">Product, platform &amp; org diligence; deal-thesis validation.</div>
+                </div>
+                <div class="rounded-2xl p-4 border" style="border-color:var(--line-soft)">
+                    <div class="text-sm font-semibold mb-1">Hold Period</div>
+                    <div class="text-[13px]" style="color:var(--ink-mute)">Value-creation roadmaps, product-org builds, post-close execution.</div>
+                </div>
+                <div class="rounded-2xl p-4 border" style="border-color:var(--line-soft)">
+                    <div class="text-sm font-semibold mb-1">Sell-Side</div>
+                    <div class="text-[13px]" style="color:var(--ink-mute)">Exit readiness, vendor/sell-side diligence, the product equity story.</div>
+                </div>
+            </div>
+            <p class="text-[15px]" style="color:var(--ink-soft)">Recent work: product, org, and platform diligence for investors in a <span class="text-white font-medium">$250M+ ARR</span> usage-based-insurance &amp; healthcare company &nbsp;•&nbsp; an <span class="text-white font-medium">international solar-technology</span> provider assessed for a global investor &nbsp;•&nbsp; a <span class="text-white font-medium">cross-border EdTech merger</span> (Australia–UK).</p>
+        </div>
+
+        <!-- Industries strip -->
+        <div class="mt-12 pt-8 border-t" style="border-color:var(--line)">
+            <div class="eyebrow text-[10px] mb-4 text-center" style="color:var(--ink-mute)">Industries Served</div>
+            <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm" style="color:var(--ink-soft)">
+                <span>Artificial Intelligence</span><span style="color:var(--ink-mute)">/</span>
+                <span>Fintech &amp; Lending</span><span style="color:var(--ink-mute)">/</span>
+                <span>Healthcare &amp; Wellness</span><span style="color:var(--ink-mute)">/</span>
+                <span>Insurance (P&amp;C / UBI)</span><span style="color:var(--ink-mute)">/</span>
+                <span>Education Tech</span><span style="color:var(--ink-mute)">/</span>
+                <span>Automotive / OEM</span><span style="color:var(--ink-mute)">/</span>
+                <span>IoT &amp; Construction</span><span style="color:var(--ink-mute)">/</span>
+                <span>Energy / CleanTech</span><span style="color:var(--ink-mute)">/</span>
+                <span>Franchise &amp; Recreation</span><span style="color:var(--ink-mute)">/</span>
+                <span>Indoor Golf</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact -->
+    <section id="impact" class="py-20" style="background:var(--bg-soft)">
+        <div class="max-w-6xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-12">
+                <div class="eyebrow text-xs accent mb-3">Real Outcomes — Not Theory</div>
+                <h3 class="display text-4xl md:text-5xl" style="font-weight:600">Selected impact</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card rounded-3xl p-8">
+                    <div class="display text-5xl metric" style="font-weight:700"><span class="count" data-prefix="" data-value="100" data-suffix="K+">0</span></div>
+                    <div class="text-lg font-medium mt-1">leads / month</div>
+                    <div class="mt-4 text-sm" style="color:var(--ink-mute)">AI-driven lead-routing system designed and scaled at Zillow.</div>
+                </div>
+                <div class="card rounded-3xl p-8">
+                    <div class="display text-5xl metric" style="font-weight:700"><span class="count" data-prefix="$" data-value="20" data-suffix="B+">$0</span></div>
+                    <div class="text-lg font-medium mt-1">monthly volume</div>
+                    <div class="mt-4 text-sm" style="color:var(--ink-mute)">Designed the next-gen origination platform that let loanDepot surpass $20B/month in funding through the pandemic surge — supporting 5,000+ sales staff across multiple channels.</div>
+                </div>
+                <div class="card rounded-3xl p-8">
+                    <div class="display text-5xl metric" style="font-weight:700"><span class="count" data-prefix="" data-value="45" data-suffix="%">0</span></div>
+                    <div class="text-lg font-medium mt-1">cost reduction</div>
+                    <div class="mt-4 text-sm" style="color:var(--ink-mute)">Lead-conversion costs lowered through smart decisioning technology.</div>
+                </div>
+                <div class="card rounded-3xl p-8">
+                    <div class="display text-5xl metric" style="font-weight:700"><span class="count" data-prefix="$" data-value="250" data-suffix="M+">$0</span></div>
+                    <div class="text-lg font-medium mt-1">ARR diligenced</div>
+                    <div class="mt-4 text-sm" style="color:var(--ink-mute)">Product &amp; org diligence for investors in a usage-based-insurance and healthcare platform.</div>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-sm" style="color:var(--ink-mute)">
+                Additional outcomes include scaling the "mello" platform from 50 to 8,000+ daily transactions across 500K+ DAUs, funded-loan growth from $1B/month (2017) to $20B/month (2021), a 30%+ lift in lead-to-customer conversion, $75M+ in new connected-car product sales (Spireon), $5M+ annual vendor savings, 40%+ revenue growth, and multiple completed PE diligence engagements.
+            </div>
+        </div>
+    </section>
+
+    <!-- Who I work with -->
+    <section class="max-w-5xl mx-auto px-6 md:px-8 py-20">
+        <div class="text-center mb-10">
+            <div class="eyebrow text-xs accent mb-3">A Deliberately Small Practice</div>
+            <h3 class="display text-3xl md:text-4xl" style="font-weight:600">Who I work with</h3>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="rounded-3xl p-7 border" style="border-color:var(--line)">
+                <i class="fa-solid fa-seedling accent text-xl mb-4"></i>
+                <h4 class="font-semibold text-lg mb-2">Founders</h4>
+                <p class="text-sm" style="color:var(--ink-soft)">Building category-defining products who need strategy with execution teeth.</p>
+            </div>
+            <div class="rounded-3xl p-7 border" style="border-color:var(--line)">
+                <i class="fa-solid fa-building-columns accent text-xl mb-4"></i>
+                <h4 class="font-semibold text-lg mb-2">Private equity</h4>
+                <p class="text-sm" style="color:var(--ink-soft)">Across the deal — buy-side diligence, hold-period value creation, and sell-side / exit readiness.</p>
+            </div>
+            <div class="rounded-3xl p-7 border" style="border-color:var(--line)">
+                <i class="fa-solid fa-chart-line accent text-xl mb-4"></i>
+                <h4 class="font-semibold text-lg mb-2">Growth teams</h4>
+                <p class="text-sm" style="color:var(--ink-soft)">Installing a real product function — the operating system, not just headcount.</p>
+            </div>
+        </div>
+        <p class="text-center text-sm mt-8" style="color:var(--ink-mute)">I take on a small number of engagements each quarter to stay hands-on.</p>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach" class="py-20" style="background:var(--bg-soft)">
+        <div class="max-w-5xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-12">
+                <div class="eyebrow text-xs mb-2" style="color:var(--accent-2)">Not Slide Decks. Executable Systems.</div>
+                <h3 class="display text-4xl md:text-5xl" style="font-weight:600">How I work</h3>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div><div class="display text-4xl mb-3" style="color:rgba(255,255,255,0.10); font-weight:700">01</div><div class="font-semibold text-xl mb-2">Deep Discovery</div><p class="text-sm" style="color:var(--ink-soft)">MECE framing, stakeholder interviews, data deep-dives, and constraint mapping.</p></div>
+                <div><div class="display text-4xl mb-3" style="color:rgba(255,255,255,0.10); font-weight:700">02</div><div class="font-semibold text-xl mb-2">AI-Augmented Analysis</div><p class="text-sm" style="color:var(--ink-soft)">Scenario modeling, prioritization frameworks, and opportunity sizing with modern tooling.</p></div>
+                <div><div class="display text-4xl mb-3" style="color:rgba(255,255,255,0.10); font-weight:700">03</div><div class="font-semibold text-xl mb-2">Co-Created Strategy</div><p class="text-sm" style="color:var(--ink-soft)">Roadmaps, operating models, and decision frameworks built with your team — not for them.</p></div>
+                <div><div class="display text-4xl mb-3" style="color:rgba(255,255,255,0.10); font-weight:700">04</div><div class="font-semibold text-xl mb-2">Capability Building</div><p class="text-sm" style="color:var(--ink-soft)">Implementation support and knowledge transfer so your team owns the system long-term.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="max-w-4xl mx-auto px-6 md:px-8 py-24 text-center">
+        <h3 class="display text-4xl md:text-5xl mb-4" style="font-weight:600">Ready to build something that matters?</h3>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto" style="color:var(--ink-soft)">You work directly with me — a former Principal and Head of Product, not a junior team behind a six-figure retainer. Big-tech product firepower, right-sized for your stage. If you're building something ambitious and want a partner who's actually done it at scale, let's talk.</p>
+        <button onclick="bookCall()" class="btn-primary px-9 py-4 font-semibold text-lg rounded-3xl inline-flex items-center gap-x-3">
+            <span>Book a 30-Minute Strategy Call</span><i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <div class="mt-6 text-xs" style="color:var(--ink-mute)">
+            Or start with a qualified project request →
+            <a href="https://jmw-intake-parser.vercel.app/" target="_blank" rel="noopener" class="underline hover:text-white">JMW Intake Parser</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t py-10 text-sm" style="border-color:var(--line); color:var(--ink-mute)">
+        <div class="max-w-6xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-y-4">
+            <div>© 2026 JMW Product Consulting, LLC. All rights reserved.</div>
+            <div class="flex items-center gap-x-6">
+                <a href="mailto:jason@jmwproductconsulting.com" class="hover:text-white">jason@jmwproductconsulting.com</a>
+                <a href="tel:+17143130833" class="hover:text-white">714.313.0833</a>
+                <a href="https://www.linkedin.com/in/jasonmwright" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a>
+            </div>
+            <div class="text-xs">Orange County, CA &nbsp;•&nbsp; Remote</div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-[60] pt-20 px-8" style="background:var(--bg)">
+        <button class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center" style="color:var(--ink-soft)" onclick="toggleMobileMenu()" aria-label="Close menu"><i class="fa-solid fa-xmark text-2xl"></i></button>
+        <div class="flex flex-col text-lg font-medium space-y-6">
+            <a href="#about" class="py-1" onclick="toggleMobileMenu()">About</a>
+            <a href="#services" class="py-1" onclick="toggleMobileMenu()">Services</a>
+            <a href="#franchise" class="py-1" onclick="toggleMobileMenu()">Franchise</a>
+            <a href="#builds" class="py-1" onclick="toggleMobileMenu()">Builds</a>
+            <a href="#work" class="py-1" onclick="toggleMobileMenu()">Case Studies</a>
+            <a href="#impact" class="py-1" onclick="toggleMobileMenu()">Impact</a>
+            <a href="#approach" class="py-1" onclick="toggleMobileMenu()">Approach</a>
+            <div class="pt-4 border-t" style="border-color:var(--line)">
+                <button onclick="bookCall(); toggleMobileMenu()" class="btn-primary w-full py-4 font-semibold rounded-2xl">Book a Call</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === Booking — Google Calendar appointment schedule ===
+        const BOOKING_URL = 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1YJLZKwdk_YDsVDptyQ0wdXOMuIHQVyB7_FH53vmhCrizADN1PJQ-KNc5WeEkA3NVX7Kgx3nXO?gv=true';
+        function bookCall() { window.open(BOOKING_URL, '_blank', 'noopener'); }
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('nav-scrolled', window.scrollY > 40);
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Count-up for impact metrics (respects reduced-motion)
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const fmt = (el, v) => el.textContent = (el.dataset.prefix || '') + Math.round(v) + (el.dataset.suffix || '');
+        const counters = document.querySelectorAll('.count');
+        if (reduce) {
+            counters.forEach(el => fmt(el, +el.dataset.value));
+        } else {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target, target = +el.dataset.value;
+                    const start = performance.now(), dur = 1400;
+                    const tick = (now) => {
+                        const p = Math.min((now - start) / dur, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        fmt(el, target * eased);
+                        if (p < 1) requestAnimationFrame(tick);
+                    };
+                    requestAnimationFrame(tick);
+                    io.unobserve(el);
+                });
+            }, { threshold: 0.6 });
+            counters.forEach(el => io.observe(el));
+        }
+    </script>
+</body>
+</html>
